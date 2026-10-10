@@ -429,6 +429,7 @@ struct RecentsView: View {
                             } label: {
                                 Label(L10n.t("删除"), systemImage: "trash")
                             }
+                            .tint(.red)
                             if let number = call.number {
                                 Button { onMessage(number) } label: {
                                     Label(L10n.t("短信"), systemImage: "message.fill")
