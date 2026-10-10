@@ -424,6 +424,11 @@ struct RecentsView: View {
                         .buttonStyle(.plain)
                         .disabled(RecentCallDialPolicy.numberToDial(call.number) == nil)
                         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                            Button(role: .destructive) {
+                                model.deleteCallHistory(call)
+                            } label: {
+                                Label(L10n.t("删除"), systemImage: "trash")
+                            }
                             if let number = call.number {
                                 Button { onMessage(number) } label: {
                                     Label(L10n.t("短信"), systemImage: "message.fill")
